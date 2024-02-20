@@ -1,7 +1,7 @@
 let news=[]
 const getLatestNews=async()=>{
   try{
-     const url= new URL(`https://newsapi2024.netlify.app`)
+     const url= new URL(`https://newsapi2024.netlify.app/top-headlines?`)
   
     const res = await fetch(url)
     const data=await res.json()
