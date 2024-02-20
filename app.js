@@ -8,7 +8,7 @@ const getLatestNews=async()=>{
     console.log(news,'res')
 
   }catch(error){
-    console.log(error,'error-getLatestNews')
+    console.log('error-getLatestNews')
   }
 }
 
