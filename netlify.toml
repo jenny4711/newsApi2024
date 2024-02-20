@@ -1,5 +1,0 @@
-[[redirects]]
-from = "/*"
-to="http://times-node-env.eba-appvq3ef.ap-northeast-2.elasticbeanstalk.com"
-status=200
-conditions = {Cookie = ["is_legacy","my_other_cookie"]}
