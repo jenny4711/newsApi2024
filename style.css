@@ -29,4 +29,7 @@
 }
 .news{
   border-bottom:2px solid black;
+  margin:10px;
+  display: flex;
+  align-items: center;
 }
