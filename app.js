@@ -7,9 +7,10 @@ const getLatestNews=async()=>{
     const data=await res.json()
      news = data.articles
     console.log(news,'res')
+    console.log(data,'data')
 
   }catch(error){
-    console.log('error-getLatestNews')
+    console.log('error-getLatestNews',error)
   }
 }
 
