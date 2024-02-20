@@ -1,7 +1,7 @@
 let news=[]
 const getLatestNews=async()=>{
   try{
-    const url= new URL(`http://times-node-env.eba-appvq3ef.ap-northeast-2.elasticbeanstalk.com/top-headlines`)
+    const url= new URL(`https://main--newsapi2024.netlify.app/`)
     const res = await fetch(url)
     const data=await res.json()
      news = data.articles
