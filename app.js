@@ -1,19 +1,31 @@
 let newsList=[]
 const BASE_URL=`https://newsapi2024.netlify.app/top-headlines?`
-//const BASE_URL=`http://times-node-env.eba-appvq3ef.ap-northeast-2.elasticbeanstalk.com/top-headlines?`
+//const BASE_URL= `http://times-node-env.eba-appvq3ef.ap-northeast-2.elasticbeanstalk.com/top-headlines?`
+let url=new URL(`${BASE_URL}`)
 const menus = document.querySelectorAll('.menus button')
 
 const searchBtn=document.getElementById('searchBtn')
+const getNews=async()=>{
+  try{
+    
+    const res = await fetch(url)
+    const data=await res.json()
+   if(res.status !==200)throw new Error(data.message)
+   if(data.articles.length === 0)throw new Error('NO Result for this search!')
+  newsList = data.articles
+
+  render()
+  }catch(error){
+    errorRender(error)
+console.log(error.message,'eeeeee')
+  }
+}
 
 const getNewsByKeyword=async()=>{
   try{
-   const keyword =document.getElementById('search-input').value
-   const url = new URL(`${BASE_URL}q=${keyword}`)
-   const res = await fetch(url)
-   const data=await res.json()
- 
-  newsList = data.articles
-  render()
+  let keyword =document.getElementById('search-input').value
+   url = new URL(`${BASE_URL}q=${keyword}`)
+  getNews()
   }catch(error){
     console.log(error,'error')
   }
@@ -28,12 +40,8 @@ const getNewsByCategory=async(evt)=>{
   
    const category=evt.target.textContent.toLowerCase();
    
-  const url= new URL(`${BASE_URL}category=${category}`)
-  const res = await fetch(url)
-  const data=await res.json()
-
-  newsList = data.articles
-  render()
+  url= new URL(`${BASE_URL}category=${category}`)
+  getNews()
   }catch(error){
     console.log(error,'error!!!!!!')
   }
@@ -41,20 +49,23 @@ const getNewsByCategory=async(evt)=>{
 
 const getLatestNews=async()=>{
   try{
-     const url= new URL(BASE_URL)
-    // const url= new URL(`http://times-node-env.eba-appvq3ef.ap-northeast-2.elasticbeanstalk.com/top-headlines?`)
+     url= new URL(BASE_URL)
+
   
-    const res = await fetch(url)
-    const data=await res.json()
-     newsList = data.articles
-    console.log(newsList)
-    console.log(data)
-render()
+    getNews(url)
   }catch(error){
     console.log('error-getLatestNews',error)
   }
 }
 
+const errorRender=(error)=>{
+  const errorHTML=`
+  <div class="alert alert-danger" role="alert">
+  ${error.message}
+  </div>
+  `
+  document.getElementById('news-board').innerHTML=errorHTML
+}
 
 const render=()=>{
   let newsHTML;
