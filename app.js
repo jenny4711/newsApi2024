@@ -1,6 +1,6 @@
 let newsList=[]
-//const BASE_URL=`https://newsapi2024.netlify.app/top-headlines?`
-const BASE_URL=`http://times-node-env.eba-appvq3ef.ap-northeast-2.elasticbeanstalk.com/top-headlines?`
+const BASE_URL=`https://newsapi2024.netlify.app/top-headlines?`
+//const BASE_URL=`http://times-node-env.eba-appvq3ef.ap-northeast-2.elasticbeanstalk.com/top-headlines?`
 const menus = document.querySelectorAll('.menus button')
 
 const searchBtn=document.getElementById('searchBtn')
