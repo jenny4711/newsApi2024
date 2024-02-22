@@ -119,10 +119,23 @@ let totalPages =Math.ceil(totalResult/pageSize)
   }
  let firstPage = lastPage-(groupSize-1) <=0?1:lastPage-(groupSize-1)
 
-let paginationHTML= ``
+let paginationHTML= `
+<li onclick="moveToPage(1)" id="left" class="page-item">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+<li id="prev" onclick="moveToPage(${page-1})" class="page-item ${page === 1? "none": ""}"><a class="page-link" href="#">Previous</a></li>`
 for(let i=firstPage;i<=lastPage;i++){
-  paginationHTML+=`    <li class="page-item ${i===page?"active":""}" onclick="moveToPage(${i})"><a class="page-link">${i}</a></li>`
+  paginationHTML+=`    <li class="page-item ${i===page?"active":""}" onclick="moveToPage(${i})"><a class="page-link">${i}</a></li> `
 }
+paginationHTML+=` <li id="next" onclick="moveToPage(${page+1})" class="page-item ${page === totalPages?"none":""}"><a class="page-link" href="#">Next</a></li>
+                  <li id="right" class="page-item" onclick="moveToPage(${totalPages})">
+                  <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                  </li>
+                        `
  document.querySelector('.pagination').innerHTML=paginationHTML
 
 
@@ -132,6 +145,9 @@ for(let i=firstPage;i<=lastPage;i++){
 
 const moveToPage=(pageNum)=>{
   page=pageNum;
+
+  
+
   getNews()
 }
 
