@@ -16,10 +16,21 @@
 <body>
   <section class="container">
     <section>
-      <div>
+    
+      <div id="searchDiv">
+        <button id="showSearch" onclick="handleSearchBtn()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+          </svg>
+        </button>
+        <div id="inputDiv" class="none">
           <input type="text" id="search-input"/>
           <button onclick="getNewsByKeyword()" id="searchBtn">Go</button>
+        </div>
       </div>
+
+
+
       <div class="head-line">
         <svg viewBox="0 0 184 25" fill="#000">
           <path
@@ -27,16 +38,50 @@
           ></path>
         </svg>
       </div>
-      <div class="menus">
-        <button>Business</button>
-        <button>Entertainment</button>
-        <button>General</button>
-        <button>Health</button>
-        <button>Science</button>
-        <button>Technology</button>
-       
-       
-      </div>
+   
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+     
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+         
+          <div class="collapse navbar-collapse menus" id="navbarText">
+           
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+              <li class="nav-item">
+                <button>Business</button>
+              </li>
+              <li class="nav-item">
+                <button>Entertainment</button>
+              </li>
+              <li class="nav-item">
+                <button>General</button>
+              </li>
+              <li class="nav-item">
+                <button>Health</button>
+              </li>
+              <li class="nav-item">
+                <button>Science</button>
+              </li>
+              <li class="nav-item">
+                <button>Technology</button>
+              </li>
+            </ul>
+          
+          </div>
+        </div>
+      </nav>
+
+
+
+
+
+
+
+
+
+
     </section>
     <section id="news-board">
       <div class="row news">

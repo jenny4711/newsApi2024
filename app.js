@@ -67,6 +67,19 @@ const errorRender=(error)=>{
   document.getElementById('news-board').innerHTML=errorHTML
 }
 
+const handleSearchBtn=()=>{
+  const inputDiv=document.getElementById('inputDiv')
+  if(inputDiv.className === "none"){
+    inputDiv.removeAttribute('class','none')
+  }else{
+    inputDiv.setAttribute('class','none')
+  }
+  
+}
+
+
+
+
 const render=()=>{
   let newsHTML;
 newsHTML=newsList.map((news)=>`<div class="row news">
