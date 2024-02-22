@@ -51,3 +51,16 @@
   border:none;
  
 }
+
+.pagination{
+  display:flex;
+  justify-content: center;
+  color:black;
+}
+.page-link{
+  color:black;
+}
+.active>.page-link{
+  background-color: black;
+  color:white;
+}
