@@ -48,8 +48,12 @@
 
 }
 #showSearch{
+  background-color: white;
   border:none;
  
+}
+.navbar-toggler{
+  border: 2px solid black;
 }
 
 .pagination{
