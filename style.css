@@ -52,8 +52,8 @@
   border:none;
  
 }
-.navbar-toggler{
-  border: 2px solid black;
+.navbar-toggler-icon{
+  display: none;
 }
 
 .pagination{
@@ -67,4 +67,18 @@
 .active>.page-link{
   background-color: black;
   color:white;
+}
+
+@media(max-width:600px){
+  .navbar-toggler-icon{
+    display:flex;
+   
+  }
+  svg{
+    width:25px;
+    height:30px;
+    border:1px solid gray;
+    border-radius: 5px;
+    padding:3px;
+  }
 }
